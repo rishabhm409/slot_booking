@@ -1,0 +1,25 @@
+{% load socialaccount %}
+<html>
+  <head>
+    <title>Login</title>
+  </head>
+  <body>
+
+  {% if user.is_authenticated %}
+  <h1>You Have Succusfully login</h1>
+  <h3>Welcome, {{ user.username }} !</h3>
+
+  <a class="btn btn-primary mt-5" href="{% url 'dashboard' %}">Go to Slot Booking</a>
+  <br>
+
+  <a class="btn btn-primary mt-5" href="{% url 'logout' %}">Logout</a>
+
+
+
+  {% else %}
+  <h1> Google Login </h1>
+  <h3><a href="{% provider_login_url 'google' %}">Login with Google</a></h3>
+  {% endif %}
+
+  </body>
+</html>
